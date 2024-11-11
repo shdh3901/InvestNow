@@ -4,7 +4,35 @@ app = Flask(__name__)
 
 registration_file = 'registrations.txt'
 
-@app.route('/', methods=['GET', 'POST'])
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('home.html') 
+
+@app.route('/register')
+def register():
+    return render_template('register.html') 
+
+@app.route('/contact-page')
+def register():
+    return render_template('contact-page.html') 
+
+@app.route('/about-as')
+def register():
+    return render_template('about-as.html') 
+
+@app.route('/login')
+def register():
+    return render_template('login.html') 
+
+@app.route('/register')
+def register():
+    return render_template('register.html') 
+
+@app.route('/register', methods=['POST'])
 def register():
     if request.method == 'POST':
         name = request.form['name']
