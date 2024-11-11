@@ -4,26 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Реєстрація</title>
-    <link rel="stylesheet" href="styles/login-and-reg.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/login-and-reg.css') }}">
 </head>
 <body>
     <div class="form-container">
         <h2>Реєстрація</h2>
 
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $userType = $_POST['userType'];
-
-            $data = "Ім'я: $name\nEmail: $email\nПароль: $password\nТип користувача: $userType\n---\n";
-
-            file_put_contents('registrations.txt', $data, FILE_APPEND);
-
-            echo "<p style='color: green;'>Запит успішно надіслано. Чекайте на підтвердження.</p>";
-        }
-        ?>
+        {% if success_message %}
+            <p style="color: green;">{{ success_message }}</p>
+        {% endif %}
 
         <form method="POST">
             <!-- Вибір користувача чи працівника -->
