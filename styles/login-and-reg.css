@@ -1,0 +1,161 @@
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Вибір шрифта для сучасності та легкості */
+}
+
+body {
+    background-color: #f4f4f4; /* Світлий нейтральний фон */
+    color: #2c3e50; /* Темно-сірий для основного тексту */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 24px;
+}
+
+/* Контейнер форми */
+.form-container {
+    background-color: #ffffff; /* Білий фон для чистоти */
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Легка тінь для глибини */
+    transition: all 0.4s ease;
+}
+
+.form-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Тінь при ховері для динамічності */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #fafafa; /* Світло-бежевий фон для полів */
+    border: 1px solid #dfe6e9; /* Легкий сірий бордер */
+    border-radius: 8px;
+    color: #2c3e50;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    background-color: #f0f0f0; /* Світліший фон при фокусі */
+    border-color: #3498db; /* Синій бордер при фокусі */
+    outline: none;
+}
+
+/* Кнопка відправки */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2ecc71; /* М’який зелений для кнопок */
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #27ae60; /* Трохи темніший зелений при ховері */
+    transform: translateY(-2px);
+}
+
+/* Забутий пароль */
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #7f8c8d; /* Легкий сірий текст */
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #3498db; /* Синій при ховері */
+}
+
+/* Вибір між користувачем та працівником */
+.user-type-selection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.user-type-btn {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #ecf0f1; /* Світло-сірий для кнопок */
+    color: #2c3e50;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-type-btn:hover {
+    background-color: #bdc3c7; /* Сіріший фон при ховері */
+}
+
+.user-type-btn.active {
+    background-color: #3498db; /* Синій для активної кнопки */
+    color: #fff;
+    border-color: #3498db;
+}
+
+.user-type-btn.inactive {
+    background-color: #f7f7f7; /* Легкий фон для неактивної кнопки */
+    color: #7f8c8d;
+}
+
+/* Анімація при завантаженні */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Кнопка при наведенні */
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Відповідність різних елементів */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+.btn,
+.user-type-btn {
+    font-family: 'Roboto', sans-serif;
+}
+

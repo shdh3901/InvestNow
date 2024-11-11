@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | InvestNow</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/contact-page.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">InvestNow</div>
+        <nav class="nav">
+            <a href="index.php">Головна</a>
+            <a href="about-as.php">Про нас</a>
+            <a href="index.php#services">Послуги</a>
+            <a href="contact-page.php">Контакти</a>
+            <button class="btn login" onclick="window.location.href='login.php'">Увійти</button>
+            <button class="btn register" onclick="window.location.href='register.php'">Зареєструватись</button>
+        </nav>
+        <!-- Гамбургер-меню -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Мобільне меню -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.php">Головна</a>
+        <a href="about-as.php">Про нас</a>
+        <a href="index.php#services">Послуги</a>
+        <a href="contact-page.php">Контакти</a>
+        <button class="btn mobile-login" onclick="window.location.href='login.php'">Увійти</button>
+        <button class="btn mobile-register" onclick="window.location.href='register.php'">Зареєструватись</button>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-info">
+            <h1>Зв'яжіться з нами</h1>
+            <p>Ми завжди готові відповісти на ваші запитання та допомогти з інвестиційними рішеннями. Ось як ви можете з нами зв'язатися:</p>
+
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>Телефон</h3>
+                    <p>+38 044 123 45 67</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Електронна пошта</h3>
+                    <p>info@investnow.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Адреса</h3>
+                    <p>вул. Mykhaila Hrushevskoho, 12/2, Office 148, Київ, Україна</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Залиште повідомлення</h2>
+            <form action="" method="POST">
+                <label for="name">Ім'я</label>
+                <input type="text" id="name" name="name" placeholder="Ваше ім'я" required>
+
+                <label for="email">Електронна пошта</label>
+                <input type="email" id="email" name="email" placeholder="Ваша електронна пошта" required>
+
+                <label for="message">Повідомлення</label>
+                <textarea id="message" name="message" placeholder="Ваше повідомлення" rows="6" required></textarea>
+
+                <button type="submit" class="btn submit-btn">Надіслати</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Map Section (optional, якщо є офіс) -->
+    <section class="map">
+        <h2>Наш офіс</h2>
+        <div id="map" class="map-container">
+            <!-- Вбудована карта (Google Maps) -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57487.27758633858!2d30.53374323775321!3d50.44849987123366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce52ddf89f83%3A0xa32769113867b348!2sUkraineInvest!5e0!3m2!1sen!2spl!4v1731187880438!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 InvestNow. Всі права захищені.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/log-and-reg.js"></script>
+    <script src="scripts/toggle-menu.js"></script>
+</body>
+</html>
+
+
+<?php
+?>
