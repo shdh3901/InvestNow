@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Інвестиційний Сайт</title>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
 </head>
 <body>
     <header class="header">
         <div class="logo">InvestNow</div>
         <nav class="nav">
-            <a href="index.php">Головна</a>
-            <a href="about-as.php">Про нас</a>
-            <a href="index.php#services">Послуги</a>
-            <a href="contact-page.php">Контакти</a>
-            <button class="btn login" onclick="window.location.href='login.php'">Увійти</button>
-            <button class="btn register" onclick="window.location.href='register.php'">Зареєструватись</button>
+            <a href="{{ url_for('home') }}">Головна</a>
+            <a href="{{ url_for('show_about') }}">Про нас</a>
+            <a href="{{ url_for('home', _anchor='services') }}">Послуги</a>
+            <a href="{{ url_for('show_contact') }}">Контакти</a>        
+            <button class="btn mobile-login" onclick="redirectTo('login')">Увійти</button>
+            <button class="btn mobile-register" onclick="redirectTo('register')">Зареєструватись</button>
         </nav>
         <!-- Гамбургер-меню -->
         <div class="hamburger" id="hamburger">
@@ -27,12 +27,12 @@
 
     <!-- Мобільне меню -->
     <nav class="mobile-nav" id="mobileNav">
-        <a href="index.php">Головна</a>
-        <a href="about-as.php">Про нас</a>
-        <a href="index.php#services">Послуги</a>
-        <a href="contact-page.php">Контакти</a>
-        <button class="btn mobile-login" onclick="window.location.href='login.php'">Увійти</button>
-        <button class="btn mobile-register" onclick="window.location.href='register.php'">Зареєструватись</button>
+        <a href="{{ url_for('home') }}">Головна</a>
+        <a href="{{ url_for('show_about') }}">Про нас</a>
+        <a href="{{ url_for('home', _anchor='services') }}">Послуги</a>
+        <a href="{{ url_for('show_contact') }}">Контакти</a>        
+        <button class="btn mobile-login" onclick="redirectTo('login')">Увійти</button>
+        <button class="btn mobile-register" onclick="redirectTo('register')">Зареєструватись</button>
     </nav>
 
     <!-- Hero Section -->
@@ -45,8 +45,10 @@
         <div class="hero-content">
             <h1>Інвестиції в Майбутнє Сьогодні</h1>
             <p>Експертні консультації для впевнених інвестицій у криптовалюти, акції та інші фінансові інструменти.</p>
-            <a class="btn hero-btn">Почати зараз</a>
-            <a href="about-as.php" class="btn hero-btn">Дізнатися більше</a>
+            <div class="hero-buttons">
+                <a href="{{url_for('show_register')}}" class="btn hero-btn">Почати зараз</a>
+                <a href="{{ url_for('show_about') }}" class="btn hero-btn">Дізнатися більше</a>
+            </div>
         </div>
     </section>
 
@@ -124,11 +126,12 @@
         </div>
     </footer>
     
-    <script src="../scripts/script.js"></script>
-    <script src="../scripts/client-counter.js"></script>
-    <script src="../scripts/circle-anim.js"></script>
-    <script src="../scripts/header-btns.js"></script>
-    <script src="../scripts/toggle-menu.js"></script>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/client-counter.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/circle-anim.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/header-btn.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/toggle-menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/redirect.js') }}"></script>
 
     <script>
         function selectUserType(type) {
@@ -144,7 +147,3 @@
     </script>
 </body>
 </html>
-
-<?php
-
-?>

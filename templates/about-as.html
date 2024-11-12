@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Про нас | InvestNow</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/about-as.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='styles/about-as.css') }}">
 </head>
 <body>
     <header class="header">
         <div class="logo">InvestNow</div>
         <nav class="nav">
-            <a href="index.php">Головна</a>
-            <a href="about-as.php">Про нас</a>
-            <a href="index.php#services">Послуги</a>
-            <a href="contact-page.php">Контакти</a>
-            <button class="btn login" onclick="window.location.href='login.php'">Увійти</button>
-            <button class="btn register" onclick="window.location.href='register.php'">Зареєструватись</button>
+            <a href="{{ url_for('home') }}">Головна</a>
+            <a href="{{ url_for('show_about') }}">Про нас</a>
+            <a href="{{ url_for('home', _anchor='services') }}">Послуги</a>
+            <a href="{{ url_for('show_contact') }}">Контакти</a>        
+            <button class="btn mobile-login" onclick="redirectTo('login')">Увійти</button>
+            <button class="btn mobile-register" onclick="redirectTo('register')">Зареєструватись</button>
         </nav>
         <!-- Гамбургер-меню -->
         <div class="hamburger" id="hamburger">
@@ -28,12 +28,12 @@
 
     <!-- Мобільне меню -->
     <nav class="mobile-nav" id="mobileNav">
-        <a href="index.php">Головна</a>
-        <a href="about-as.php">Про нас</a>
-        <a href="index.php#services">Послуги</a>
-        <a href="contact-page.php">Контакти</a>
-        <button class="btn mobile-login" onclick="window.location.href='login.php'">Увійти</button>
-        <button class="btn mobile-register" onclick="window.location.href='register.php'">Зареєструватись</button>
+        <a href="{{ url_for('home') }}">Головна</a>
+        <a href="{{ url_for('show_about') }}">Про нас</a>
+        <a href="{{ url_for('home', _anchor='services') }}">Послуги</a>
+        <a href="{{ url_for('show_contact') }}">Контакти</a>        
+        <button class="btn mobile-login" onclick="redirectTo('login')">Увійти</button>
+        <button class="btn mobile-register" onclick="redirectTo('register')">Зареєструватись</button>
     </nav>
 
     <!-- About Us Section -->
@@ -101,12 +101,9 @@
         </div>
     </footer>
 
-    <script src="../scripts/script.js"></script>
-    <script src="../scripts/log-and-reg.js"></script>
-    <script src="../scripts/toggle-menu.js"></script>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/log-and-reg.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/toggle-menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/redirect.js') }}"></script>
 </body>
 </html>
-
-<?php
-
-?>

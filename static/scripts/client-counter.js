@@ -6,7 +6,6 @@ function animateCounter(element, start = 0, end, duration = 2000) {
         const progress = Math.min((timestamp - startTime) / duration, 1);
         const value = Math.floor(progress * (end - start) + start);
 
-        // Додаємо '+' тільки якщо анімація досягла кінцевого значення
         if (progress === 1) {
             element.textContent = value + "+";
         } else {

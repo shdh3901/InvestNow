@@ -168,26 +168,33 @@ body {
     height: 100px;
 }
 
-
+/* Герой-розділ на мобільних */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
         text-align: center;
+        padding: 0 5%;
     }
 
     .hero-content {
         max-width: 100%;
     }
 
-    .hero-content h1 {
-        font-size: 38px;
+    /* Контейнер для кнопок */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column; /* Змінити на row, якщо хочете кнопки поруч */
+        gap: 10px; /* Відстань між кнопками */
+        justify-content: center;
+        align-items: center;
     }
 
-    .hero-content p {
+    .hero-btn {
+        width: 80%; /* Налаштування ширини кнопок для адаптивного вигляду */
         font-size: 18px;
+        padding: 12px 0;
     }
 }
-
 
 /* Client Counter */
 .client-counter {
@@ -433,7 +440,7 @@ body {
     .hero-images img {
         width: 60px;
         margin-left: 20%;
-        top: 73%;
+        top: 77%;
         height: 60px;
         border-radius: 50%;
         object-fit: cover;
@@ -615,19 +622,37 @@ body {
 }
 
 /* Кнопки "Увійти" та "Зареєструватись" для мобільних */
-.btn.mobile-login, .btn.mobile-register {
-    width: 80%;
-    padding: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    margin: 10px 0;
+/* Стиль для кнопок у десктопній версії */
+.btn {
+    padding: 8px 20px;
+    border-radius: 25px;
     border: 2px solid var(--cta-color);
     background-color: transparent;
+    color: var(--cta-color);
+    font-weight: bold;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
-
-.btn.mobile-login:hover, .btn.mobile-register:hover {
+.btn:hover {
     background-color: var(--cta-color);
     color: #fff;
+}
+
+/* Стилі для мобільних кнопок */
+@media (max-width: 768px) {
+    .btn.mobile-login, .btn.mobile-register {
+        width: 80%;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        margin: 10px 0;
+        border: 2px solid var(--cta-color);
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+    .btn.mobile-login:hover, .btn.mobile-register:hover {
+        background-color: var(--cta-color);
+        color: #fff;
+    }
 }
