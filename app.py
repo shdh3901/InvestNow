@@ -1,8 +1,16 @@
 import os
+import re
 from flask import Flask, request, render_template, url_for
 
 app = Flask(__name__)
-registration_file = 'registrations.txt'
+app.secret_key = os.environ.get('SECRET_KEY', 'change-this')
+registration_file = os.environ.get('REGISTRATION_FILE', 'registrations.txt')
+
+EMAIL_RE = re.compile(r"[^@]+@[^@]+\.[^@]+")
+
+def is_valid_email(value: str) -> bool:
+    """Return True if email has a basic valid format."""
+    return EMAIL_RE.match(value or "") is not None
 
 @app.route('/')
 def home():
@@ -11,19 +19,29 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 def show_register():
     if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        password = request.form['password']
-        user_type = request.form['userType']
+        name = request.form.get('name', '').strip()
+        email = request.form.get('email', '').strip()
+        password = request.form.get('password', '')
+        confirm = request.form.get('confirm-password', '')
+        user_type = request.form.get('userType', '')
+
+        errors = []
+        if not is_valid_email(email):
+            errors.append('Невірний формат email.')
+        if password != confirm:
+            errors.append('Паролі не співпадають.')
+
+        if errors:
+            return render_template('register.html', success_message=None, errors=errors)
 
         data = f"Name: {name}\nEmail: {email}\nPassword: {password}\nUser Type: {user_type}\n---\n"
-        with open(registration_file, 'a') as file:
+        with open(registration_file, 'a', encoding='utf-8') as file:
             file.write(data)
 
         success_message = "Запит успішно надіслано. Чекайте на підтвердження."
-        return render_template('register.html', success_message=success_message)
+        return render_template('register.html', success_message=success_message, errors=None)
 
-    return render_template('register.html', success_message=None)
+    return render_template('register.html', success_message=None, errors=None)
 
 @app.route('/contact-page')
 def show_contact():
@@ -44,8 +62,8 @@ def show_info():
         if not os.path.exists(registration_file):
             return "The registration file does not exist.", 404
 
-        # Читання файлу з кодуванням 'cp1251'
-        with open(registration_file, 'r', encoding='cp1251') as file:
+        # Читання файлу з кодуванням 'utf-8'
+        with open(registration_file, 'r', encoding='utf-8') as file:
             content = file.read()
         return render_template('show_info.html', content=content)
     except UnicodeDecodeError:
